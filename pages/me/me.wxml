@@ -17,6 +17,9 @@
         <view class="status">进行中</view>
       </view>
     </view>
+    <!--
+    navigation  url="/pages/event/event?id={{item.id}}"
+      -->
     <view class="list-box">
       <view class="list-dot"></view>
       <view class="list-time">2018-09-01 09:00</view>

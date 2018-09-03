@@ -1,47 +1,55 @@
 <!--pages/event/event.wxml-->
-<view class='box'>
-   <view class='list'>
-      <view class='title'>标题</view>
-      <input class='content'type="text" placeholder='请输入标题'></input>
-   </view>
-   <view class='list'>
-      <view class='title'>活动描述</view>
-      <textarea class='content' placeholder='请输入描述'></textarea>
-      
-   </view>
-   <view class='list'>
-      <view class='title'>截止时间</view>
-      <input class='content' type="text" placeholder='请输入时间'></input>
-   </view>
-   <view class='list'>
-      <view class='title'>人数限制</view>
-      <input class='content' type="text" placeholder='请输入人数'></input>
-   </view>
-   <button class='button' type='primary' bindtap="toastShow" >分享</button>
+<block wx:if="{{user_info}}">
+  <form bindsubmit="formSubmit">
+    <view class='box'>
+      <view class='list'>
+        <view class='title'>标题</view>
+        <input class='content' name="title" value="{{form.title}}" type="text" placeholder='请输入标题'></input>
+      </view>
+      <view class='list'>
+        <view class='title'>活动描述</view>
+        <textarea class='content' name="active_info" value="{{form.active_info}}" placeholder='请输入描述'></textarea>
+      </view>
+      <view class='list'>
+        <view class='title'>截止时间</view>
+        <input class='content' name="active_time" value="{{form.active_time}}" type="text" placeholder='请输入时间'></input>
+      </view>
+      <view class='list'>
+        <view class='title'>人数限制</view>
+        <input class='content' name="active_person" value="{{form.active_person}}" type="number" placeholder='请输入人数'></input>
+      </view>
+      <button class='button' formType="submit" type='primary'>分享</button>
+    </view>
+  </form>
+</block>
+<block wx:else>
+  <button open-type="getUserInfo" bindgetuserinfo='get'>
+    授权使用
+  </button>
+</block>
 
-   
-</view>
-<view class="tab">
+
+<!-- <view class="tab">
   <view class="events">活动</view>
   <view class='my'>我的</view>
-</view>
+</view> -->
 
 <view class="hiddenBox" hidden="{{status}}">
-   <view class="share">
-      <view class="shareText">分享</view>
-      <view class="close" bindtap="toastHide">x</view>
-   </view>
-   <view class="shaerBox">
-      <view class="fiends">
-         <view class="circle">
-            
-         </view>
-         <view class="shareName">分享给好友</view>
+  <view class="share">
+    <view class="shareText">分享</view>
+    <view class="close" bindtap="toastHide">x</view>
+  </view>
+  <view class="shaerBox">
+    <view class="fiends">
+      <view class="circle">
+
       </view>
-      <view class="shu"></view>
-       <view class="fiends" bindtap="downloadFile">
-         <view class="circle"></view>
-         <view class="shareName">分享到朋友圈</view>
-      </view>
-   </view>
+      <view class="shareName">分享给好友</view>
+    </view>
+    <view class="shu"></view>
+    <view class="fiends" bindtap="downloadFile">
+      <view class="circle"></view>
+      <view class="shareName">分享到朋友圈</view>
+    </view>
+  </view>
 </view>
