@@ -1,1 +1,111 @@
-/* pages/index/index.wxss */
+/* pages/event/event.wxss */
+.box{
+  width: 100%;
+  height: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+ 
+}
+.list{
+  width: 100%;
+  min-height: 124rpx;
+  border-bottom: 4rpx solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  font-size: 44rpx;  
+  padding: 10rpx 0;
+}
+.list > .title{
+  color: #333;
+  width: 200rpx;
+}
+.list > .content{
+  color: #666;
+  flex: 1;
+}
+button{
+  margin-top: 20rpx;
+}
+.hiddenBox{
+  width: 100%;
+  height: 426rpx;
+  background: #fff;
+  position: absolute;
+  left:0;
+  bottom:0;
+  z-index: 999;
+}
+.share{
+  width:100%;
+  height: 100rpx;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.shareText{
+  font-size: 34rpx;
+  color: #333;
+  line-height: 100rpx;
+}
+.close{
+   font-size: 42rpx;
+    color: #c6c6c6;
+    line-height: 100rpx;
+    
+}
+.shaerBox{
+  width:100%;
+  height: 170rpx;
+  margin:0 auto;
+  margin-top: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fiends{
+  width: 300rpx;
+  height:170rpx;
+  
+}
+.circle{
+  width: 116rpx;
+  height: 116rpx;
+  border:3rpx solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.shareName{
+  font-size: 28rpx;
+  color: #666666;
+  flex-shrink: 0;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.shu{
+  width: 3rpx;
+  height: 139rpx;
+  background: #e5e5e5;
+}
+.tab{
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  display: flex;
+  justify-content: space-around;
+   background: #efeff4;
+}
+.events{
+   font-size: 28rpx;
+   color: #666;
+   line-height: 80rpx;
+}
+.my{
+   font-size: 28rpx;
+   color: #666;
+   line-height: 80rpx;
+}
