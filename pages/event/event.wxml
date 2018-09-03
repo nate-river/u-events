@@ -1,2 +1,47 @@
 <!--pages/event/event.wxml-->
-<text>pages/event/event.wxml</text>
+<view class='box'>
+   <view class='list'>
+      <view class='title'>标题</view>
+      <view class='content'>周末一起去打球</view>
+   </view>
+   <view class='list'>
+      <view class='title'>活动描述</view>
+      <view class='content'>
+         周末一起去 周末一起去 周末一起去 周末一起去 周末一起去
+      </view>
+   </view>
+   <view class='list'>
+      <view class='title'>活动时间</view>
+      <view class='content'>2018-09-03 20:18</view>
+   </view>
+   <view class='thumbs'>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+       <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+       <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+      <view>
+        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      </view>
+   </view>
+   <button class='button' type='{{status}}' disabled='{{disabled}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
+</view>
