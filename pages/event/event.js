@@ -23,8 +23,6 @@ Page({
       wx.setStorageSync('info', this.data.user);
       this.login();
     })
-
-
   },
 
   login() {
