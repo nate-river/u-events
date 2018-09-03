@@ -1,2 +1,35 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<!-- header MyPhoto -->
+<view class="my" style="background-image:url('')">
+  <view class="my-photo"></view>
+  <button wx:if="{{islogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+
+<view class="list">
+  <view class="list-line">
+    <view class="list-box">
+      <view class="list-dot"></view>
+      <view class="list-time">2018-09-01 09:00</view>
+      <view class="list-item">
+        <view class="title">活动标题活动标题</view>
+        <view class="des">活动简介活动简介</view> 
+        <view class="time">2018-09-01 09:00</view> 
+        <view class="status">进行中</view>
+      </view>
+    </view>
+    <view class="list-box">
+      <view class="list-dot"></view>
+      <view class="list-time">2018-09-01 09:00</view>
+      <view class="list-item">
+        <view class="title">活动标题活动标题</view>
+        <view class="des">活动简介活动简介</view> 
+        <view class="time">2018-09-01 09:00</view> 
+        <view class="status">进行中</view>
+      </view>
+    </view>
+    
+    
+  </view>
+ 
+  
+</view>
