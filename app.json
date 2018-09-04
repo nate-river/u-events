@@ -1,14 +1,33 @@
 {
   "pages": [
-    "pages/event/event",
+    "pages/index/index",
     "pages/me/me",
-    "pages/index/index"
-
+    "pages/event/event"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "活动",
+        "iconPath":"pages/image/event.png",
+        "selectedIconPath":"pages/image/event1.png"
+
+       
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "pages/image/me.png",
+        "selectedIconPath": "pages/image/me1.png"
+      }
+    ]
+   
+   
   }
 }

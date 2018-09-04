@@ -44,7 +44,7 @@ Page({
               'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
             success: function (res) {
-              console.log(res.data)
+              console.log(res)
               // 拿到活动Id
               // 吊起弹出窗口
               
