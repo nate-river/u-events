@@ -15,7 +15,7 @@
       <view class='content'>2018-09-03 20:18</view>
    </view>
    <view class='thumbs'>
-      <view>
+      <view bindtouchend='callperson'>
         <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
       </view>
        <view>
