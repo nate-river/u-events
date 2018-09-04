@@ -1,38 +1,38 @@
 <!--pages/me/me.wxml-->
 <!-- header MyPhoto -->
-<view class="my" style="background-image:url('')">
-  <view class="my-photo"></view>
-  <button wx:if="{{islogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view class="my" style="background-image:url({{img}})">
+  <view class="cover"></view>
+  <view class="my-photo" style="background-image:url({{img}})"></view>
 </view>
-
+<button bindgetuserinfo='bindGetUserInfo' open-type='getUserInfo'>提交</button>
 <view class="list">
   <view class="list-line">
-    <view class="list-box">
-      <view class="list-dot"></view>
-      <view class="list-time">2018-09-01 09:00</view>
-      <view class="list-item">
-        <view class="title">活动标题活动标题</view>
-        <view class="des">活动简介活动简介</view> 
-        <view class="time">2018-09-01 09:00</view> 
-        <view class="status">进行中</view>
-      </view>
-    </view>
-    <!--
-    navigation  url="/pages/event/event?id={{item.id}}"
-      -->
-    <view class="list-box">
-      <view class="list-dot"></view>
-      <view class="list-time">2018-09-01 09:00</view>
-      <view class="list-item">
-        <view class="title">活动标题活动标题</view>
-        <view class="des">活动简介活动简介</view> 
-        <view class="time">2018-09-01 09:00</view> 
-        <view class="status">进行中</view>
-      </view>
-    </view>
+    <view class="list-box" wx:for="{{list}}" wx:key="{{item.id}}" >
+    <block wx:if="{{item.isout}}">
+      <navigator url="/pages/event/event?id={{item.id}}">
+        <view class="list-dot"></view>
+        <view class="list-time">{{item.active_time}}</view>
+        <view class="list-item">
+          <view class="title">{{item.user_name}}</view>
+          <view class="des">{{item.active_info}}</view> 
+          <view class="time">{{item.active_time}}</view> 
+          <view class="status">已完成</view>
+        </view>
+      </navigator>
+    </block>
+    <block wx:else> 
+      <navigator url="/pages/event/event?id={{item.id}}">
+        <view class="list-dot"></view>
+        <view class="list-time">{{item.active_time}}</view>
+        <view class="list-item">
+          <view class="title">{{item.user_name}}</view>
+          <view class="des">{{item.active_info}}</view> 
+          <view class="time">{{item.active_time}}</view> 
+          <view class="status">进行中</view>
+        </view>
+      </navigator>
+    </block>
     
-    
+    </view>
   </view>
- 
-  
 </view>

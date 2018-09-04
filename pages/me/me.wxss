@@ -3,19 +3,35 @@
 .my{
   width:100%;
   height:324rpx;
-  background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20rpx 0;
-  filter: blur(10px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:relative;
+
+}
+.cover{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(35rpx);
 }
 .my .my-photo{
   width:200rpx;
   height:200rpx;
   border-radius: 50%;
-  background: green;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  z-index: 55;
 }
 
 .tab .tab-text.active{
@@ -48,7 +64,7 @@
   border-radius: 50%;
   position: absolute;
   top:13rpx;
-  left:-33rpx;
+  left:-35rpx;
 }
 .list .list-time{
   color:#333;
@@ -85,7 +101,7 @@
   background: green;
   position:absolute;
   bottom:50rpx;
-  right:20rpx;
+  right:40rpx;
   text-align: center;
   color: #fff;
   font-size:20rpx;

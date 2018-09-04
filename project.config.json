@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.3",
 	"appid": "wx04de2f0660644693",
-	"projectname": "Uevents",
+	"projectname": "uEvent",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
