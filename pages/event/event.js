@@ -5,29 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    status: 'default',
+    status: 'primary',
     aid: 10,
     disabled: false,
     // 活动信息
     activeinfo: {},
     // 用户信息
-    user: null,
+    user_info: null,
     islogin: false,
     code: 0,
   },
+  // 打电话
+  callperson(){
+    wx.makePhoneCall({
+      phoneNumber: '15735183801' 
+    })
+  },
+
   // 获取用户信息
   bindGetUserInfo: function(e) {
     this.setData({
-      user: e.detail.userInfo
+      user_info: e.detail.userInfo
     }, () => {
-      wx.setStorageSync('info', this.data.user);
+      wx.setStorageSync('user_info', this.data.user_info);
       this.login();
     })
   },
 
   login() {
     wx.login({
-      success: function(res) {
+      success: (res) =>{
         if (res.code) {
           this.setData({
             code: res.code
@@ -61,12 +68,9 @@ Page({
   // 获取活动信息
   getData() {
     wx.request({
-      url: '',
+      url: 'https://event.applinzi.com/index.php?type=my',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        aid: this.data.aid
       },
       success: function(res) {
         console.log(res.data);
@@ -78,8 +82,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //  this.setDisabled()
-
+    console.log(options)
   },
 
   /**
@@ -93,7 +96,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getData();
   },
 
   /**
