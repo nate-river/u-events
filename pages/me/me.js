@@ -18,9 +18,9 @@ Page({
   
   getData() {
     let data = [{
-      user_name: "活动1",
+      user_name: "活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1活动1",
       user_img: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLgXj6Axr2aRKDv3qIIwrfnGyMjPUmJI2auiaO4xZBCIYkvQ4ria784dXoXMzPiaxhMgicnoiasqG0GsIQ/132",
-      active_info: "描述",
+      active_info: "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
       active_time: "2018/09/04 19:28",
       number: "111",
     },
