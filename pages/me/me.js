@@ -6,7 +6,8 @@ Page({
    */
   data: {
     list: [],
-    img:''
+    img:'',
+    name:''
   },
 
   /**
@@ -17,46 +18,27 @@ Page({
   },
   
   getData() {
-    let data = [{
-      user_name: "活动1",
-      user_img: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLgXj6Axr2aRKDv3qIIwrfnGyMjPUmJI2auiaO4xZBCIYkvQ4ria784dXoXMzPiaxhMgicnoiasqG0GsIQ/132",
-      active_info: "描述",
-      active_time: "2018/09/04 19:28",
-      number: "111",
-    },
-    {
-      user_name: "活动2",
-      user_img: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLgXj6Axr2aRKDv3qIIwrfnGyMjPUmJI2auiaO4xZBCIYkvQ4ria784dXoXMzPiaxhMgicnoiasqG0GsIQ/132",
-      active_info: "描述",
-      active_time: "2018/09/05 19:28",
-      number: "111",
-    }
-    ];
-
-
-     let date =  new Date();
-     for(let i=0;i<data.length;i++){
-        if(date > new Date(data[i].active_time) ){
-           data[i].isout = true 
-        }else{
-           data[i].isout = false;
-        }
-     }
-     this.setData({
-       list:data
-     })
-    // wx.request({
-    //   url: 'https://event.applinzi.com/index.php?type=my',
-    //   data: {
-    //     jscode: this.data.jscode
-    //   },
-    //   success(res) {
-      
-    //     this.setData({
-    //       list: res.data
-    //     })
-    //   }
-    // })
+    wx.request({
+      url: 'https://event.applinzi.com/index.php?type=my',
+      data: {
+        jscode: this.data.jscode
+      },
+      success(res) {
+        let data = res;
+        console.log(data);
+        // let date = new Date();
+        // for (let i = 0; i < data.length; i++) {
+        //   if (date > new Date(data[i].active_time)) {
+        //     data[i].isout = true
+        //   } else {
+        //     data[i].isout = false;
+        //   }
+        // }
+        // this.setData({
+        //   list: data
+        // })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -65,15 +47,12 @@ Page({
 
   },
   bindGetUserInfo: function (e) {
-    // if (this.data.islogin) {
-    //   console.log(e.detail.userInfo.avatarUrl)
-    // } else {
-
-    // }
+   
     wx.getUserInfo({
       success:res=>{
         this.setData({
-          img: res.userInfo.avatarUrl
+          img: res.userInfo.avatarUrl,
+          name: res.userInfo.nickName
         })
       }
     })

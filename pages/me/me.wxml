@@ -1,10 +1,12 @@
 <!--pages/me/me.wxml-->
 <!-- header MyPhoto -->
-<view class="my" style="background-image:url({{img}})">
+<view class="my" >
   <view class="cover"></view>
   <view class="my-photo" style="background-image:url({{img}})"></view>
+  <view class="nick-name">{{name}}</view>
 </view>
 <button bindgetuserinfo='bindGetUserInfo' open-type='getUserInfo'>提交</button>
+<!-- active list -->
 <view class="list">
   <view class="list-line">
     <view class="list-box" wx:for="{{list}}" wx:key="{{item.id}}" >
@@ -36,3 +38,4 @@
     </view>
   </view>
 </view>
+

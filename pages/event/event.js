@@ -6,12 +6,13 @@ Page({
    */
   data: {
     status: 'primary',
-    aid: 10,
+    id: 15,
     disabled: false,
     // 活动信息
     activeinfo: {},
     // 用户信息
     user_info: null,
+    list:[],
     islogin: false,
     code: 0,
   },
@@ -27,25 +28,34 @@ Page({
     this.setData({
       user_info: e.detail.userInfo
     }, () => {
-      wx.setStorageSync('user_info', this.data.user_info);
-      this.login();
+       this.join();
     })
   },
 
-  login() {
+  join(){
     wx.login({
-      success: (res) =>{
+      success: (res) => {
         if (res.code) {
-          this.setData({
-            code: res.code
-          }, () => {
-            wx.request({
-              url: 'https://event.applinzi.com/',
-              data: {
-                jscode: res.code
+          wx.request({
+            method: "POST",
+            url: 'http://192.168.4.156/uek_active/index.php?type=join',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            data: {
+              jscode: res.code,
+              user_name:this.data.user_info.nickName,
+              user_img:this.data.user_info.avatarUrl,
+              active_id:this.data.id
+            },
+            success: (ress) => {
+              if(ress.data.code == 200){
+                this.getData();
               }
-            })
+            }
           })
+
+
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -56,36 +66,51 @@ Page({
   // 设置是否可以加入
   setDisabled() {
     // 活动人数  参加
-    let a = 30,
-      b = 20;
-    if (b >= a) {
-      this.setData({
-        disabled: true
-      })
+    if(this.data.activeinfo.active_person >this.list.length){
+       
     }
   },
 
   // 获取活动信息
   getData() {
-    wx.request({
-      url: '',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function(res) {
-        console.log(res.data);
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+            
+            wx.request({
+              method:'POST',
+              url: 'http://192.168.4.156/uek_active/index.php?type=actives&id='+this.data.id,
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              data: {
+                 jscode:res.code
+              },
+              success:  (ress) =>{
+                 this.setData({
+                   activeinfo: ress.data.active,
+                   list:ress.data.list
+                 }) ;
+              }
+            })
+
+         
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
       }
-    })
+    });
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let aid = options.id || 15 
     this.setData({
-      aid: options.id
+      aid: aid
     }) 
-
   },
 
   /**

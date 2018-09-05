@@ -2,46 +2,23 @@
 <view class='box'>
    <view class='list'>
       <view class='title'>标题</view>
-      <view class='content'>周末一起去打球</view>
+      <view class='content'>{{activeinfo.active_title}}</view>
    </view>
    <view class='list'>
       <view class='title'>活动描述</view>
       <view class='content'>
-         周末一起去 周末一起去 周末一起去 周末一起去 周末一起去
+         {{activeinfo.active_info}}
       </view>
    </view>
    <view class='list'>
       <view class='title'>活动时间</view>
-      <view class='content'>2018-09-03 20:18</view>
+      <view class='content'>{{activeinfo.active_time}}</view>
    </view>
    <view class='thumbs'>
-      <view bindtouchend='callperson'>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
+      <view wx:for="{{list}}" wx:key="{{item.id}}" style='background-image:url({{item.user_img}})'>
       </view>
-       <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-       <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
-      <view>
-        <image src='http://pic3.58cdn.com.cn/p1/big/n_v1bl2lwkb53mgvqdzlhvjq_d4473fafff50fcf7.jpg'></image>
-      </view>
+     
+     
    </view>
    <button class='button' type='{{status}}' disabled='{{disabled}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
 </view>
