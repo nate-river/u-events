@@ -68,7 +68,7 @@ Page({
   // 获取活动信息
   getData() {
     wx.request({
-      url: 'https://event.applinzi.com/index.php?type=my',
+      url: '',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -82,7 +82,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    this.setData({
+      aid: options.id
+    }) 
+
   },
 
   /**
