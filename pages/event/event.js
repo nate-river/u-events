@@ -6,7 +6,7 @@ Page({
    */
   data: {
     status: 'primary',
-    id: 15,
+    id:0,
     disabled: false,
     // 活动信息
     activeinfo: {},
@@ -66,8 +66,11 @@ Page({
   // 设置是否可以加入
   setDisabled() {
     // 活动人数  参加
-    if(this.data.activeinfo.active_person >this.list.length){
-       
+    let flag = this.data.list.some(element=>element.user_name == this.data.user_info.nickName);
+    if(this.data.activeinfo.active_person >this.list.length && flag){
+        this.setData({
+          disabled:true
+        })
     }
   },
 
@@ -107,9 +110,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let aid = options.id || 15 
+    let aid = options.id;
+    console.log(aid);
     this.setData({
-      aid: aid
+      id: aid
     }) 
   },
 

@@ -17,7 +17,6 @@ Page({
    
   },
   login() {
-    console.log(1)
     wx.login({
       success: (res) => {
         if (res.code) {
