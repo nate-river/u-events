@@ -15,7 +15,7 @@
   position: absolute;
   top:0;
   left:0;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   filter: blur(35rpx);
 }
 .my .my-photo{
@@ -63,8 +63,8 @@
   background: #000;
   border-radius: 50%;
   position: absolute;
-  top:13rpx;
-  left:-35rpx;
+  top:14rpx;
+  left:-34rpx;
 }
 .list .list-time{
   color:#333;
@@ -73,7 +73,7 @@
 .list .list-item{
   border-radius: 5rpx;
   background: #fff;
-  box-shadow: 0rpx 5rpx 15rpx 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 5rpx 5rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
   padding:40rpx 30rpx;
   box-sizing: border-box;
   position: relative;
