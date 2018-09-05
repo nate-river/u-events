@@ -2,6 +2,7 @@
 Page({
   toastShow: function (event) {
     this.setData({ status: false })　　　　//setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
+    console.log(this.data.status);
   },
   toastHide: function (event) {
     this.setData({ status: true })
@@ -22,6 +23,7 @@ Page({
     })
   },
   formSubmit(e) {
+
     this.setData({
       form: e.detail.value
     })
@@ -36,6 +38,7 @@ Page({
           this.setData({
             "form.jscode": res.code
           })
+          this.toastShow();
           wx.request({
             url: 'https://event.applinzi.com/index.php?type=add', //仅为示例，并非真实的接口地址
             method: "POST",
@@ -43,10 +46,10 @@ Page({
             header: {
               'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
-            success: function (res) {
-              console.log(res)
+            success:(res)=>{
               // 拿到活动Id
               // 吊起弹出窗口
+              this.toastShow();
               
             }
           })
@@ -84,20 +87,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // wx.request({
-    //   url: 'https://event.applinzi.com/index.php?type=add', //仅为示例，并非真实的接口地址
-    //   method: "post",
-    //   data: {
-    //     x: '',
-    //     y: ''
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
+   
   },
 
   /**
