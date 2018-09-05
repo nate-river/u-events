@@ -65,11 +65,15 @@ button{
   align-items: center;
 }
 .fiends{
-  width: 300rpx;
+  width: 350rpx;
   height:170rpx;
-  border:none;
-  background: none;
-  
+}
+button::after{
+   border: none;
+   background: none;
+   padding:0;
+   outline: none;
+
 }
 .circle{
   width: 116rpx;
@@ -78,10 +82,12 @@ button{
   box-sizing: border-box;
   border-radius: 50%;
   margin: 0 auto;
-  /* background: url(./image/weChart.png) no-repeat; */
+  background: url(http://192.168.4.156/uek_active/img/weChart.png) no-repeat center;
+  background-size: 80% 80%;
 }
 .circle1{
-  /* background: url(./image/friends.png) no-repeat; */
+  background: url(http://192.168.4.156/uek_active/img/friends.png) no-repeat center;
+   background-size: 80% 80%;
 }
 .shareName{
   font-size: 28rpx;

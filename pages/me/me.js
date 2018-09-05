@@ -16,10 +16,50 @@ Page({
   onLoad: function (options) {
    
   },
-  
+  login() {
+    console.log(1)
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          wx.request({
+            method:'POST',
+            url: 'http://192.168.4.156/uek_active/index.php?type=my',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            data: {
+              jscode: res.code    
+            },
+            success:  (res)=> {
+              let data = res.data.data;
+             
+              let date = new Date();
+              for (let i = 0; i < data.length; i++) {
+                if (date > new Date(data[i].active_time)) {
+                  data[i].isout = true
+                } else {
+                  data[i].isout = false;
+                }
+              }
+              this.setData({
+                list: data
+              })
+
+            
+            }
+          })
+
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
+
+  },
   getData() {
     wx.request({
-      url: 'https://event.applinzi.com/index.php?type=my',
+      url: 'http://192.168.4.156/uek_active/index.php?type=my',
       data: {
         jscode: this.data.jscode
       },
@@ -40,6 +80,7 @@ Page({
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -69,13 +110,7 @@ Page({
   // js_code  请求你的数据
 
   onShow: function () {
-      // let info=wx.getStorageSync("user_info");
-      // if(info){
-
-      // }else{
-      //   wx.navigateBack();
-      // }
-      this.getData();
+      this.login();
   },
 
   /**

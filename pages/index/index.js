@@ -1,5 +1,25 @@
 // pages/index/index.js
 Page({
+  saveImg:function(){
+    wx.downloadFile({
+      url: 'http://192.168.4.156/uek_active/?type=fenxiang&id='+ wx.getStorageSync("token"), //仅为示例，并非真实的资源
+      success: function (res) {
+        // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+        if (res.statusCode === 200) {
+          wx.playVoice({
+            filePath: res.tempFilePath
+          })
+          wx.saveImageToPhotosAlbum({
+            filePath:res.tempFilePath,
+            success(res) {
+              console.log(res);
+            }
+          })
+        }
+      }
+    });
+   
+  },
   bindTimeChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -18,14 +38,12 @@ Page({
   },
   toastShow: function (event) {
     this.setData({ status: false })　　　　//setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
-    console.log(this.data.status);
   },
   toastHide: function (event) {
     this.setData({ status: true })
   },
   toastShow1: function (event) {
     this.setData({ status1: false })　　　　//setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
-    console.log(this.data.status1);
   },
   toastHide1: function (event) {
     this.setData({ status1: true })
@@ -33,21 +51,16 @@ Page({
   downloadFile: function () {
     this.setData({ imgs: 'http://192.168.4.156/uek_active/?type=fenxiang&id=' + wx.getStorageSync("token") });
     this.toastShow1();
-    // wx.request({
-    //   url: 'http://192.168.4.156/uek_active/?type=fenxiang&id=' + wx.getStorageSync("token"), //仅为示例，并非真实的接口地址
-    //   method: "GET",
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded' // 默认值
-    //   },
-    //   success: (res) => {
-    //     // 拿到活动Id
-    //     // 吊起弹出窗口
-       
-    //     console.log(res)
-       
-
-    //   }
-    // })
+    this.setData({ status: true });
+    var animation = wx.createAnimation({
+      transformOrigin: "50% 50%",
+      duration: 1000,
+      timingFunction: "ease",
+      delay: 0
+    });
+    this.setData({
+      animationData: animation.export()
+    })
   },
   formSubmit(e) {
 
@@ -65,6 +78,8 @@ Page({
           this.setData({
             "form.jscode": res.code
           })
+          wx.setStorageSync('form.jscode', res.code)
+
           wx.request({
             url: 'http://192.168.4.156/uek_active/index.php?type=add', //仅为示例，并非真实的接口地址
             method: "POST",
@@ -100,8 +115,12 @@ Page({
     user_info: null,
     status: true,　　　　　　　　　　　//data里面的属性可以传递到视图
     status1:true,
-    form: {},
-    imgs:''
+    form: {
+      
+      active_time:"请选择时间",      
+    },
+    imgs:'',
+    animationData: {}
   },
 
   /**
@@ -136,7 +155,10 @@ Page({
     this.setData({
       user_info: e.detail.userInfo
     })
-    wx.setStorageSync('user_info', e.detail.userInfo)
+    wx.setStorageSync('user_info', e.detail.userInfo);
+
+    
+
   },
 
   /**
