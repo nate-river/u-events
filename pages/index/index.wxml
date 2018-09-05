@@ -12,7 +12,12 @@
       </view>
       <view class='list'>
         <view class='title'>截止时间</view>
-        <input class='content' name="active_time" value="{{form.active_time}}" type="text" placeholder='请输入时间'></input>
+         <picker mode="time" value="{{form.active_time}}" start="09:01" end="21:01" bindchange="bindTimeChange" class='content' name="active_time">
+            <view class="picker">
+             请选择时间  {{form.active_time}}
+            </view>
+          </picker>
+        <!-- <input class='content' name="active_time" value="{{form.active_time}}" type="text" placeholder='请输入时间'></input> -->
       </view>
       <view class='list'>
         <view class='title'>人数限制</view>
@@ -37,16 +42,26 @@
     <view class="close" bindtap="toastHide">x</view>
   </view>
   <view class="shaerBox">
-    <view class="fiends">
-      <view class="circle">
-
-      </view>
+    <button class="fiends" open-type="share" plain="{{true}}">
+      <view class="circle "></view>
       <view class="shareName">分享给好友</view>
-    </view>
+    </button>
     <view class="shu"></view>
     <view class="fiends" bindtap="downloadFile">
-      <view class="circle"></view>
+      <view class="circle circle1">
+      </view>
       <view class="shareName">分享到朋友圈</view>
     </view>
   </view>
+</view>
+
+
+<view class="saveBox" hidden="{{status1}}">
+   <view class="share">
+      <view class="shareText">分享</view>
+      <view class="close" bindtap="toastHide1">x</view>
+   </view>
+   <image src='{{imgs}}'></image>
+   <button type="warn"> 保存图片</button>
+   <view class="saveText">保存图片到手机后,您可到朋友圈分享该商品图</view>
 </view>
