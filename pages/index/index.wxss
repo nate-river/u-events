@@ -130,4 +130,6 @@ image{
   text-align: center;
   line-height: 90rpx;
 }
-
+textarea{
+  line-height: 40rpx;
+}

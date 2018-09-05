@@ -64,9 +64,20 @@ Page({
   },
   formSubmit(e) {
 
+    if (!this.data.form.title || !this.data.form.active_info || !this.data.form.active_time || !this.data.form.active_person ) {
+      console.log(1);
+      wx.showToast({
+        title: '请输入完整数据',
+        icon: 'none',
+        duration: 2000
+      });
+      this.setData({ status: true });
+     }
+     else{
     this.setData({
       form: e.detail.value
     })
+    
     this.setData({
       'form.user_name': this.data.user_info.nickName,
       'form.user_img': this.data.user_info.avatarUrl
@@ -93,16 +104,16 @@ Page({
               console.log(res);
               wx.setStorageSync("token", res.data.id);
               this.toastShow();
-              
             }
           })
-
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     });
 
+    }
+  
   },
   // 点击分享到好友 调微信接口
   // 点击分享到朋友圈   下载图片 把图片在页面中显示
@@ -117,7 +128,7 @@ Page({
     status1:true,
     form: {
       
-      active_time:"请选择时间",      
+      active_time:"请选择日期",      
     },
     imgs:'',
     animationData: {}
