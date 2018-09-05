@@ -1,11 +1,11 @@
 <!--pages/me/me.wxml-->
 <!-- header MyPhoto -->
-<view class="my" >
+<!-- <view class="my" >
   <view class="cover"></view>
   <view class="my-photo" style="background-image:url({{img}})"></view>
   <view class="nick-name">{{name}}</view>
 </view>
-<button bindgetuserinfo='bindGetUserInfo' open-type='getUserInfo'>提交</button>
+<button bindgetuserinfo='bindGetUserInfo' open-type='getUserInfo'>提交</button> -->
 <!-- active list -->
 <view class="list">
   <view class="list-line">
@@ -15,7 +15,7 @@
         <view class="list-dot"></view>
         <view class="list-time">{{item.active_time}}</view>
         <view class="list-item">
-          <view class="title">{{item.user_name}}</view>
+          <view class="title">{{item.active_title}}</view>
           <view class="des">{{item.active_info}}</view> 
           <view class="time">{{item.active_time}}</view> 
           <view class="status">已完成</view>
@@ -27,7 +27,7 @@
         <view class="list-dot"></view>
         <view class="list-time">{{item.active_time}}</view>
         <view class="list-item">
-          <view class="title">{{item.user_name}}</view>
+          <view class="title">{{item.active_title}}</view>
           <view class="des">{{item.active_info}}</view> 
           <view class="time">{{item.active_time}}</view> 
           <view class="status">进行中</view>
