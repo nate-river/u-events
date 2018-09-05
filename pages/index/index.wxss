@@ -28,7 +28,7 @@ button{
 }
 .hiddenBox{
   width: 100%;
-  height: 426rpx;
+  height: 376rpx;
   background: #fff;
   position: absolute;
   left:0;
@@ -37,22 +37,22 @@ button{
 }
 .share{
   width:100%;
-  height: 100rpx;
-  background: #f7f7f7;
+  height: 80rpx;
+  background: #F8F8F8;
   display: flex;
   justify-content: space-between;
   padding:0 20rpx;
   box-sizing: border-box;
 }
 .shareText{
-  font-size: 34rpx;
+  font-size: 30rpx;
   color: #333;
-  line-height: 100rpx;
+  line-height: 80rpx;
 }
 .close{
    font-size: 42rpx;
     color: #c6c6c6;
-    line-height: 100rpx;
+    line-height: 80rpx;
     
 }
 .shaerBox{
