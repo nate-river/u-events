@@ -34,7 +34,7 @@ Page({
   },
 
   join() {
-    if (wx.getStorageSync('a')) {
+    if (wx.getStorageSync('a')==this.data.id) {
       this.setData({
         a: wx.getStorageSync('a')
       })
@@ -63,18 +63,16 @@ Page({
                 active_id: this.data.id
               },
               success: (ress) => {
+                wx.setStorageSync('a', this.data.id);
                 this.setData({
-                  a: true
+                  disabled:false
                 })
-                wx.setStorageSync('a', true)
                 wx.hideLoading();
                 if (ress.data.code == 200) {
                   this.getData();
                 }
               }
             })
-
-
           } else {
             console.log('登录失败！' + res.errMsg)
           }
@@ -87,8 +85,8 @@ Page({
   // 设置是否可以加入
   setDisabled() {
     // 活动人数  参加
-    let flag = this.data.list.some(element => element.user_name == this.data.user_info.nickName);
-    if (this.data.activeinfo.active_person > this.list.length && flag) {
+    if (this.data.activeinfo.active_person > this.data.list.length && wx.getStorageSync('a')!=this.data.id) {
+     
       this.setData({
         disabled: true
       })
@@ -118,6 +116,7 @@ Page({
                 activeinfo: ress.data.active,
                 list: ress.data.list
               });
+              this.setDisabled();
             }
           })
 
@@ -133,13 +132,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     if (options.id) {
       this.setData({
         id: options.id
       })
     } else {
       this.setData({
-        id: 131
+        id: 130
       })
     }
   },
@@ -155,9 +155,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      a: wx.getStorageSync('a')
-    })
+    // this.setData({
+    //   a: wx.getStorageSync('a')
+    // })
     this.getData();
   },
 

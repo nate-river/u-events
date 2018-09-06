@@ -20,6 +20,6 @@
       </view>
     </view>
 
-    <button wx:if="{{!a}}" class='button' type='{{status}}' disabled='{{disabled}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
+    <button class='button' wx:if="{{disabled}}" class='button' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
   </view>
 </block>
