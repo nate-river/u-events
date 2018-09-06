@@ -2,7 +2,7 @@
 Page({
   saveImg:function(){
     wx.downloadFile({
-      url: 'https://event.applinzi.com/index.php?type=fenxiang&id='+ wx.getStorageSync("token"), //仅为示例，并非真实的资源
+      url: 'https://event.applinzi.com/index.php?type=fenxiang&id=' + wx.getStorageSync("token"), 
       success: function (res) {
         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
         if (res.statusCode === 200) {
@@ -62,16 +62,7 @@ Page({
   },
   formSubmit(e) {
     console.log(this.data.form.title)
-    // if (!this.data.form.title || !this.data.form.active_info || !this.data.form.active_time || !this.data.form.active_person ) {
-    //   console.log(1);
-    //   wx.showToast({
-    //     title: '请输入完整活动信息',
-    //     icon: 'none',
-    //     duration: 2000
-    //   });
-    //   this.setData({ status: true });
-    //  }
-    //  else{
+    
     this.setData({
       form: e.detail.value
     })
@@ -80,6 +71,17 @@ Page({
       'form.user_name': this.data.user_info.nickName,
       'form.user_img': this.data.user_info.avatarUrl
     })
+    if (!this.data.form.title || !this.data.form.active_info || !this.data.form.active_time || !this.data.form.active_person) {
+      console.log(1);
+      wx.showToast({
+        title: '请输入完整活动信息',
+        icon: 'none',
+        duration: 2000
+      });
+      this.setData({ status: true });
+    }
+    else {
+
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -110,7 +112,7 @@ Page({
       }
     });
 
-    // }
+    }
   
   },
   // 点击分享到好友 调微信接口
