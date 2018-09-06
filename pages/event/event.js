@@ -52,7 +52,7 @@ Page({
             })
             wx.request({
               method: "POST",
-              url: 'http://event.applinzi.com/index.php?type=join',
+              url: 'https://event.applinzi.com/index.php?type=join',
               header: {
                 'content-type': 'application/x-www-form-urlencoded'
               },
@@ -105,7 +105,7 @@ Page({
           })
           wx.request({
             method: 'POST',
-            url: 'http://event.applinzi.com/index.php?type=actives&id=' + this.data.id,
+            url: 'https://event.applinzi.com/index.php?type=actives&id=' + this.data.id,
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
@@ -133,11 +133,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let aid = options.id;
-    console.log(aid);
-    this.setData({
-      id: aid
-    })
+    if (options.id) {
+      this.setData({
+        id: options.id
+      })
+    } else {
+      this.setData({
+        id: 131
+      })
+    }
   },
 
   /**

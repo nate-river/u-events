@@ -30,14 +30,7 @@ Page({
     })
   },
 
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-    }
-    return {
-      title: '自定义转发标题',
-      path: '/page/user?id=123'
-    }
-  },
+
 
   toastShow: function (event) {
     this.setData({ status: false })　　　　//setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
@@ -216,9 +209,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      return {
+        title: '快来参加活动吧',
+        path: '/pages/event/event?id=' + wx.getStorageSync("token")
+      }
+    }
+  }
 
 
 })
