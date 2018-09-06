@@ -60,6 +60,6 @@
     <view class="close" bindtap="toastHide1"></view>
   </view>
   <image src='{{imgs}}'></image>
-  <button type="warn" bindtap="saveImg" style='width:90%;'> 保存图片</button>
+  <button type="warn" bindtap="saveImg" style='width:90%;' class="saveImg"> 保存图片</button>
   <view class="saveText">保存图片到手机后,您可到朋友圈分享该商品图</view>
 </view>

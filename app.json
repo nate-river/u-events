@@ -12,18 +12,20 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#707070", 
+    "selectedColor": "#40A9FF",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "活动",
-        "iconPath": "pages/image/event.png",
-        "selectedIconPath": "pages/image/event1.png"
+        "iconPath": "pages/image/event (3).png",
+        "selectedIconPath": "pages/image/eventr.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "pages/image/me.png",
-        "selectedIconPath": "pages/image/me1.png"
+        "iconPath": "pages/image/my (3).png",
+        "selectedIconPath": "pages/image/my.png"
       }
     ]
   }

@@ -53,6 +53,7 @@ button {
   left: 0;
   bottom: 0;
   z-index: 999;
+  box-shadow: 0 0 300rpx 2000rpx rgba(0,0,0,0.5);
 }
 
 .share {
@@ -72,10 +73,11 @@ button {
 }
 
 .close {
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACDUlEQVRoQ+2ZO2sUURTHf2dmEgvFCJJglSIfwS0EkbBIXFL5SMisoEU6v0IgPtDYWKXWKoWEZAUJASEmEXfjNjZaWZoqhSRIiGBhmN0jNw+wWDJ72Vk30XO7Yf5z5v84l7nDEU74khPOHxPQ6QQtgWOfwJWS9ofKZ6AmERfLo7LhSI+VNNxUBkUpKAyKMABccPcUtlBWFN7+Slj4eFd+tEtoagvl53QS4ekBgYkk4UUU8ghhHOhJI6awC7wRYXYLFr/E4q6PXEMl7UnqjKsQVIoyfRQ4XcC8TgH395zVPeKRwIM0Eo3uq+KSWBBYDrtZejci3w9x+fcaySY36nBP4CoQKkxVivLw2AjwFW0CnGP5DFvIEmjgwF/dxJaAJdDid8BayFrIWshvF9hR4l8/StQU1kRZritrQch6OZZvTvTl19rXvcs1hYIII8AZv+bZR7elhUT4iZJEATOrseykEcs9167T57gVQKzKdRG60p4BdlBmkhqPq3dkO9P/gcptedIEgYaQSy/17KmImwEUEIaB8wdAl9xXoEqdpd6QD69iqTXzHu/DXCsCmiHkizEBvo5ljbcEsnbUt54l4OtY1nhLIGtHfetZAr6OZY23BLJ21Lfef5GAmw24GYFbE+WiPPN1qZ341ATciClSPun+iCl3OGJqJymf2qkCfIp1AmsCOuH6n++0BCyBFh34DVQGb0Cpj7hqAAAAAElFTkSuQmCC) no-repeat  center center /100% auto;
-  font-size: 42rpx;
-  color: #c6c6c6;
-  line-height: 80rpx;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABNklEQVQ4T42TwVHDMBBF/3pGvuIOcAe4hNCB6YCU4IOlI7l5pIvpAOggHRA6CB0kHcDVOohZj+WRZWXwHqX5T3//rkhrfSaiewCPUsozNpQxpgLwCeBCxpgLAAb8bIEE4gLAlQGVc+5ERHf/QUKxc+6XiHbEjrdA4pcB1NzyCODq+74YhoGdPLATInpq2/bEd1rrmojeABTOue88z3dN03DLmAEJCB/tJz6LEYtXgBuQkZESJwEeYq3lkfJ0uK5CiMrbDie9aMFfGGOeAYy2g9pLKd/jNVkBQjHbBlBOIx4ziSELQCzmtK21ZbAnK8gMSIl9z13XlVmWHacRLyB+kcKev4QQdRxYtCczhLTWByJ6mUb1oZRiWLJSEP4LbovYE0MIh8wOak5aKfV66+X4nCHW2gOH+wej1Mse5/3NiwAAAABJRU5ErkJggg==) no-repeat  center center/60% 60%;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  
 }
 
 .shaerBox {
@@ -108,12 +110,12 @@ button::after {
   border-radius: 50%;
   margin: 0 auto;
   background: url(https://event.applinzi.com/img/weChart.png) no-repeat center;
-  background-size: 80% 80%;
+  background-size: 70% 70%;
 }
 
 .circle1 {
   background: url(https://event.applinzi.com/img/friends.png) no-repeat center;
-  background-size: 80% 80%;
+  background-size: 70% 70%;
 }
 
 .shareName {
@@ -157,9 +159,16 @@ image {
   font-size: 22rpx;
   color: #4d4d4d;
   text-align: center;
-  line-height: 90rpx;
+  line-height: 160rpx;
 }
 
 textarea {
   line-height: 40rpx;
+}
+.saveImg{
+  height:80rpx;
+  font-size:28rpx;
+  color:#fff;
+  margin-top: 100rpx;
+
 }
