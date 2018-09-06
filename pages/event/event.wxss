@@ -15,6 +15,7 @@ page {
   font-size: 28rpx;
   background-color: #40a9ff;
   color: #fff;
+  text-align: center;
 }
 
 .box {

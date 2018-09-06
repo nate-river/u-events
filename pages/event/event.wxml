@@ -20,6 +20,8 @@
       </view>
     </view>
 
-    <button class='button' wx:if="{{disabled}}" class='button' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
+    <button style="margin-bottom:60rpx" class='button' wx:if="{{disabled}}" class='button' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">确认参与</button>
+    <navigator open-type="reLaunch" url="/pages/index/index" class='button' class='button'>返回首页</navigator>
+
   </view>
 </block>
