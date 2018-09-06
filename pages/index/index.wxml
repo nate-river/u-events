@@ -3,7 +3,7 @@
   <form bindsubmit="formSubmit">
     <view class='box'>
       <view class='list'>
-        <view class='title'>标题</view>
+        <view class='title'>活动标题</view>
         <input class='content' name="title" value="{{form.title}}" type="text" placeholder='请输入标题'></input>
       </view>
       <view class='list'>
