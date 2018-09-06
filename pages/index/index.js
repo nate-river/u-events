@@ -2,7 +2,7 @@
 Page({
   saveImg:function(){
     wx.downloadFile({
-      url: 'http://192.168.4.156/uek_active/?type=fenxiang&id='+ wx.getStorageSync("token"), //仅为示例，并非真实的资源
+      url: 'https://event.applinzi.com/index.php?type=fenxiang&id=' + wx.getStorageSync("token"), 
       success: function (res) {
         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
         if (res.statusCode === 200) {
@@ -12,7 +12,6 @@ Page({
           wx.saveImageToPhotosAlbum({
             filePath:res.tempFilePath,
             success(res) {
-              console.log(res);
             }
           })
         }
@@ -29,7 +28,6 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
     }
     return {
       title: '自定义转发标题',
@@ -49,7 +47,7 @@ Page({
     this.setData({ status1: true })
   },
   downloadFile: function () {
-    this.setData({ imgs: 'http://192.168.4.156/uek_active/?type=fenxiang&id=' + wx.getStorageSync("token") });
+    this.setData({ imgs: 'https://event.applinzi.com/index.php?type=fenxiang&id=' + wx.getStorageSync("token") });
     this.toastShow1();
     this.setData({ status: true });
     var animation = wx.createAnimation({
@@ -63,14 +61,27 @@ Page({
     })
   },
   formSubmit(e) {
-
+    console.log(this.data.form.title)
+    
     this.setData({
       form: e.detail.value
     })
+    
     this.setData({
       'form.user_name': this.data.user_info.nickName,
       'form.user_img': this.data.user_info.avatarUrl
     })
+    if (!this.data.form.title || !this.data.form.active_info || !this.data.form.active_time || !this.data.form.active_person) {
+      console.log(1);
+      wx.showToast({
+        title: '请输入完整活动信息',
+        icon: 'none',
+        duration: 2000
+      });
+      this.setData({ status: true });
+    }
+    else {
+
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -81,7 +92,7 @@ Page({
           wx.setStorageSync('form.jscode', res.code)
 
           wx.request({
-            url: 'http://192.168.4.156/uek_active/index.php?type=add', //仅为示例，并非真实的接口地址
+            url: 'https://event.applinzi.com/index.php?type=add', //仅为示例，并非真实的接口地址
             method: "POST",
             data: this.data.form,
             header: {
@@ -93,16 +104,16 @@ Page({
               console.log(res);
               wx.setStorageSync("token", res.data.id);
               this.toastShow();
-              
             }
           })
-
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     });
 
+    }
+  
   },
   // 点击分享到好友 调微信接口
   // 点击分享到朋友圈   下载图片 把图片在页面中显示
@@ -117,7 +128,7 @@ Page({
     status1:true,
     form: {
       
-      active_time:"请选择时间",      
+      active_time:"请选择日期",      
     },
     imgs:'',
     animationData: {}
