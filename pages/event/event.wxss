@@ -1,43 +1,56 @@
 /* pages/event/event.wxss */
-.box{
+
+page {
+  background: #f7f7f7;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.box {
+  background: #fff;
   width: 100%;
   height: auto;
-  padding: 0 40rpx;
+  padding: 20rpx 40rpx;
   box-sizing: border-box;
 }
-.list{
+
+.list {
   width: 100%;
   min-height: 124rpx;
-  border-bottom: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #f7f7f7;
   display: flex;
   align-items: center;
-  font-size: 26rpx; 
-  padding: 10rpx 0; 
+  font-size: 26rpx;
+  padding: 10rpx 0;
 }
-.list > .title{
+
+.list > .title {
   color: #333;
   width: 200rpx;
 }
-.list > .content{
+
+.list > .content {
   color: #666;
   flex: 1;
 }
-.button{
+
+.button {
   margin-top: 20rpx;
 }
 
-.thumbs{
+.thumbs {
   width: 100%;
   height: auto;
   overflow: hidden;
 }
-.thumbs > view{
+
+.thumbs > view {
   width: 150rpx;
-  height: 150rpx; 
+  height: 150rpx;
   margin: 10rpx 10rpx;
   border-radius: 50%;
   overflow: hidden;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   float: left;
 }

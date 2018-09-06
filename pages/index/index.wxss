@@ -1,135 +1,165 @@
 /* pages/event/event.wxss */
-.box{
+
+page {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.box {
   width: 100%;
   height: 100%;
   padding: 0 50rpx;
   box-sizing: border-box;
- 
 }
-.list{
+
+.button {
+  border-radius: 5rpx;
+  line-height: 80rpx;
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  background-color: #40a9ff;
+  color: #fff;
+}
+
+.list {
   width: 100%;
   min-height: 85rpx;
-  border-bottom: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #f7f7f7;
   display: flex;
   align-items: center;
-  font-size: 26rpx;  
   padding: 10rpx 0;
 }
-.list > .title{
+
+.list > .title {
   color: #333;
   width: 200rpx;
 }
-.list > .content{
+
+.list > .content {
   color: #666;
   flex: 1;
 }
-button{
-  margin-top: 50rpx;
+
+button {
+  margin-top: 100rpx;
 }
-.hiddenBox{
+
+.hiddenBox {
   width: 100%;
   height: 376rpx;
   background: #fff;
   position: absolute;
-  left:0;
-  bottom:0;
+  left: 0;
+  bottom: 0;
   z-index: 999;
 }
-.share{
-  width:100%;
+
+.share {
+  width: 100%;
   height: 80rpx;
-  background: #F8F8F8;
+  background: #f8f8f8;
   display: flex;
   justify-content: space-between;
-  padding:0 20rpx;
+  padding: 0 20rpx;
   box-sizing: border-box;
 }
-.shareText{
+
+.shareText {
   font-size: 30rpx;
   color: #333;
   line-height: 80rpx;
 }
-.close{
-   font-size: 42rpx;
-    color: #c6c6c6;
-    line-height: 80rpx;
-    
+
+.close {
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACDUlEQVRoQ+2ZO2sUURTHf2dmEgvFCJJglSIfwS0EkbBIXFL5SMisoEU6v0IgPtDYWKXWKoWEZAUJASEmEXfjNjZaWZoqhSRIiGBhmN0jNw+wWDJ72Vk30XO7Yf5z5v84l7nDEU74khPOHxPQ6QQtgWOfwJWS9ofKZ6AmERfLo7LhSI+VNNxUBkUpKAyKMABccPcUtlBWFN7+Slj4eFd+tEtoagvl53QS4ekBgYkk4UUU8ghhHOhJI6awC7wRYXYLFr/E4q6PXEMl7UnqjKsQVIoyfRQ4XcC8TgH395zVPeKRwIM0Eo3uq+KSWBBYDrtZejci3w9x+fcaySY36nBP4CoQKkxVivLw2AjwFW0CnGP5DFvIEmjgwF/dxJaAJdDid8BayFrIWshvF9hR4l8/StQU1kRZritrQch6OZZvTvTl19rXvcs1hYIII8AZv+bZR7elhUT4iZJEATOrseykEcs9167T57gVQKzKdRG60p4BdlBmkhqPq3dkO9P/gcptedIEgYaQSy/17KmImwEUEIaB8wdAl9xXoEqdpd6QD69iqTXzHu/DXCsCmiHkizEBvo5ljbcEsnbUt54l4OtY1nhLIGtHfetZAr6OZY23BLJ21Lfef5GAmw24GYFbE+WiPPN1qZ341ATciClSPun+iCl3OGJqJymf2qkCfIp1AmsCOuH6n++0BCyBFh34DVQGb0Cpj7hqAAAAAElFTkSuQmCC) no-repeat  center center /100% auto;
+  font-size: 42rpx;
+  color: #c6c6c6;
+  line-height: 80rpx;
 }
-.shaerBox{
-  width:100%;
+
+.shaerBox {
+  width: 100%;
   height: 170rpx;
-  margin:0 auto;
+  margin: 0 auto;
   margin-top: 70rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.fiends{
-  width: 350rpx;
-  height:170rpx;
-}
-button::after{
-   border: none;
-   background: none;
-   padding:0;
-   outline: none;
 
+.fiends {
+  width: 350rpx;
+  height: 170rpx;
 }
-.circle{
+
+button::after {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+.circle {
   width: 116rpx;
   height: 116rpx;
-  border:3rpx solid #e5e5e5;
+  border: 3rpx solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 50%;
   margin: 0 auto;
   background: url(https://event.applinzi.com/img/weChart.png) no-repeat center;
   background-size: 80% 80%;
 }
-.circle1{
+
+.circle1 {
   background: url(https://event.applinzi.com/img/friends.png) no-repeat center;
-   background-size: 80% 80%;
+  background-size: 80% 80%;
 }
-.shareName{
+
+.shareName {
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
   flex-shrink: 0;
   text-align: center;
   margin-top: 10rpx;
 }
-.shu{
+
+.shu {
   width: 3rpx;
   height: 139rpx;
   background: #e5e5e5;
 }
-image{
+
+image {
   width: 80rpx;
   height: 60rpx;
 }
 
-
-.saveBox{
+.saveBox {
   width: 100%;
-  height: 1000rpx;
+  height: 100vh;
   position: absolute;
   background: #fff;
-  left:0;
+  left: 0;
   bottom: 0;
   z-index: 99999;
 }
-image{
+
+image {
   width: 374rpx;
   height: 667rpx;
-  margin:28rpx auto 0;
+  margin: 28rpx auto 0;
   display: block;
-  box-shadow: 5rpx 5rpx 20rpx 0 rgba(0,0,0,0.1);
-
+  box-shadow: 5rpx 5rpx 20rpx 0 rgba(0, 0, 0, 0.1);
 }
-.saveText{
+
+.saveText {
   font-size: 22rpx;
   color: #4d4d4d;
   text-align: center;
   line-height: 90rpx;
 }
-textarea{
+
+textarea {
   line-height: 40rpx;
 }

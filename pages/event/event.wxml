@@ -1,24 +1,25 @@
 <!--pages/event/event.wxml-->
-<view class='box'>
-   <view class='list'>
+<block wx:if="{{activeinfo}}">
+  <view class='box'>
+    <view class='list'>
       <view class='title'>标题</view>
       <view class='content'>{{activeinfo.active_title}}</view>
-   </view>
-   <view class='list'>
+    </view>
+    <view class='list'>
       <view class='title'>活动描述</view>
       <view class='content'>
-         {{activeinfo.active_info}}
+        {{activeinfo.active_info}}
       </view>
-   </view>
-   <view class='list'>
+    </view>
+    <view class='list'>
       <view class='title'>活动时间</view>
       <view class='content'>{{activeinfo.active_time}}</view>
-   </view>
-   <view class='thumbs'>
+    </view>
+    <view class='thumbs'>
       <view wx:for="{{list}}" wx:key="{{item.id}}" style='background-image:url({{item.user_img}})'>
       </view>
-     
-     
-   </view>
-   <button class='button' type='{{status}}' disabled='{{disabled}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
-</view>
+    </view>
+
+    <button wx:if="{{!a}}" class='button' type='{{status}}' disabled='{{disabled}}' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">Join</button>
+  </view>
+</block>

@@ -6,32 +6,36 @@ Page({
    */
   data: {
     list: [],
-    img:'',
-    name:''
+    img: '',
+    name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
   login() {
+    wx.showLoading({
+      title: '正在加载',
+    })
     wx.login({
       success: (res) => {
         if (res.code) {
           wx.request({
-            method:'POST',
+            method: 'POST',
             url: 'https://event.applinzi.com/index.php?type=my',
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
             data: {
-              jscode: res.code    
+              jscode: res.code
             },
-            success:  (res)=> {
+            success: (res) => {
+              wx.hideLoading();
               let data = res.data.data;
-             
+
               let date = new Date();
               for (let i = 0; i < data.length; i++) {
                 if (date > new Date(data[i].active_time)) {
@@ -44,7 +48,7 @@ Page({
                 list: data
               })
 
-            
+
             }
           })
 
@@ -58,9 +62,9 @@ Page({
   },
   getData() {
     wx.request({
-      url: ''https://event.applinzi.com/index.php?type=my',
+      url: 'https://event.applinzi.com/index.php?type=my',
       data: {
-        jscode: this.data.jscode
+        jscode: thpageis.data.jscode
       },
       success(res) {
         let data = res;
@@ -87,9 +91,9 @@ Page({
 
   },
   bindGetUserInfo: function (e) {
-   
+
     wx.getUserInfo({
-      success:res=>{
+      success: res => {
         this.setData({
           img: res.userInfo.avatarUrl,
           name: res.userInfo.nickName
@@ -103,13 +107,13 @@ Page({
   // user_info
   // 没有user_info
   // wx.navigateback
-  
+
   // 进来的人一定有user_info
   // img name
   // js_code  请求你的数据
 
   onShow: function () {
-      this.login();
+    this.login();
   },
 
   /**
