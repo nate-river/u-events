@@ -82,11 +82,11 @@ button::after{
   box-sizing: border-box;
   border-radius: 50%;
   margin: 0 auto;
-  background: url(http://192.168.4.156/uek_active/img/weChart.png) no-repeat center;
+  background: url(https://event.applinzi.com/img/weChart.png) no-repeat center;
   background-size: 80% 80%;
 }
 .circle1{
-  background: url(http://192.168.4.156/uek_active/img/friends.png) no-repeat center;
+  background: url(https://event.applinzi.com/img/friends.png) no-repeat center;
    background-size: 80% 80%;
 }
 .shareName{
