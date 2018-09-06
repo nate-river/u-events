@@ -22,7 +22,7 @@ Page({
         if (res.code) {
           wx.request({
             method:'POST',
-            url: 'http://192.168.4.156/uek_active/index.php?type=my',
+            url: 'https://event.applinzi.com/index.php?type=my',
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
@@ -58,7 +58,7 @@ Page({
   },
   getData() {
     wx.request({
-      url: 'http://192.168.4.156/uek_active/index.php?type=my',
+      url: ''https://event.applinzi.com/index.php?type=my',
       data: {
         jscode: this.data.jscode
       },
