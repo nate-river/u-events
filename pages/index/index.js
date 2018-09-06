@@ -12,7 +12,6 @@ Page({
           wx.saveImageToPhotosAlbum({
             filePath:res.tempFilePath,
             success(res) {
-              console.log(res);
             }
           })
         }
@@ -29,7 +28,6 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
     }
     return {
       title: '自定义转发标题',
@@ -67,7 +65,7 @@ Page({
     if (!this.data.form.title || !this.data.form.active_info || !this.data.form.active_time || !this.data.form.active_person ) {
       console.log(1);
       wx.showToast({
-        title: '请输入完整数据',
+        title: '请输入完整活动信息',
         icon: 'none',
         duration: 2000
       });
